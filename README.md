@@ -43,9 +43,10 @@ Após iniciar os containers, abra seu navegador e vá para: http://localhost:808
 
 Siga as instruções na interface para configurar o osTicket e conectar ao seu servidor de banco de dados.
 
-Nota: Certifique-se de colocar os dados de acesso e credenciais compatíveis com os utilizados no arquivo `docker-compose.dev.yml`.
+***Nota:*** Certifique-se de colocar os dados de acesso e credenciais compatíveis com os utilizados no arquivo `docker-compose.dev.yml`.
 
-Licença
+## Licença
+
 Este projeto é licenciado sob a licença Affero General Public License (AGPLv3).
 
 Abaixo, temos o readme original do osTicket.
