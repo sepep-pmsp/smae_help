@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  mariadb:
+    container_name: ${MARIADB_HOST}
+    image: mariadb:11.1-jammy
+    environment:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+      - MARIADB_DATABASE
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - mariadb-socket:/run/mysqld/
+    networks:
+      - osticket
+
+  osticket:
+    container_name: osticket
+    build: .
+    ports:
+      - 8080:80
+    networks:
+      - osticket
+    depends_on:
+      - mariadb
+
+networks:
+  osticket:
+    driver: bridge
+    name: osticket
+
+volumes:
+  mariadb-data:
+  mariadb-socket:

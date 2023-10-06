@@ -7,12 +7,13 @@ setup/cli/modules/importer
 .vagrant
 ._.DS_Store
 Vagrantfile
+.env
 
 # Staging directory used for packaging script
 stage
 
 # Ignore packaged plugins and language packs
-*.phar
+# *.phar
 
 # Ignore mPDF temp files
 include/mpdf/ttfontdata
