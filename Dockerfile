@@ -32,7 +32,8 @@ RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 
 RUN docker-php-ext-install imap
 
-RUN pear config-set http_proxy ${HTTP_PROXY}
+# Configura o proxy no pear apenas se a variável não estiver vazia
+RUN [ ! -z "${HTTP_PROXY}" ] && pear config-set http_proxy ${HTTP_PROXY} || echo "HTTP_PROXY is empty"
 
 RUN pecl install apcu
 
