@@ -43,7 +43,18 @@ Após iniciar os containers, abra seu navegador e vá para: http://localhost:808
 
 Siga as instruções na interface para configurar o osTicket e conectar ao seu servidor de banco de dados.
 
-***Nota:*** Certifique-se de colocar os dados de acesso e credenciais compatíveis com os utilizados no arquivo `docker-compose.dev.yml`.
+***Nota 1:*** O instalador se baseia no checksum MD5 do arquivo com o schema do banco de dados *com terminações de linha no padrão UNIX (lf)* para calcular os patches necessários. Para que o build funcione é necessário se assegurar que o arquivo `setup/inc/streams/install-mysql.sql` esteja usando terminações de linha lf ou configurar o repositório todo para utilizar terminações UNIX com:
+
+```bash
+git config core.eol lf
+git config core.autocrlf false
+
+rm -rf * .env* .gitignore
+
+git reset --hard HEAD
+```
+
+***Nota 2:*** Certifique-se de colocar os dados de acesso e credenciais compatíveis com os utilizados no arquivo `docker-compose.dev.yml`.
 
 ## Licença
 
