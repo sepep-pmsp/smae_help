@@ -18,6 +18,8 @@ services:
   osticket:
     container_name: osticket
     build: .
+    volumes:
+      - osticket-site:/var/www/html
     ports:
       - 8080:80
     networks:
@@ -33,3 +35,4 @@ networks:
 volumes:
   mariadb-data:
   mariadb-socket:
+  osticket-site:
